@@ -5,7 +5,7 @@ import com.bibliotecaAtv.biblioteca.domains.Editora;
 import com.bibliotecaAtv.biblioteca.domains.Livro;
 import com.bibliotecaAtv.biblioteca.domains.dtos.EditoraDTO;
 import com.bibliotecaAtv.biblioteca.repositories.EditoraRepository;
-import org.hibernate.ObjectNotFoundException;
+import com.bibliotecaAtv.biblioteca.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class EditoraService {
     }
     public Editora findbyId(Long id){
         Optional<Editora> obj = editoraRepo.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Codigo de barras não encontrado! Codigo de barras: " + id));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Editora não encontrada! Editora: " + id));
     }
 
     public Editora findbycnpj(String cnpj){

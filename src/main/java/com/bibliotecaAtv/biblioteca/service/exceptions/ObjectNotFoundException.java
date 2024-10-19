@@ -1,7 +1,5 @@
 package com.bibliotecaAtv.biblioteca.service.exceptions;
 
-import org.yaml.snakeyaml.events.Event;
-
 public class ObjectNotFoundException extends RuntimeException{
     private static final long serialVersionUID = 1L;
 

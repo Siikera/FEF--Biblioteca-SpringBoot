@@ -4,7 +4,7 @@ import com.bibliotecaAtv.biblioteca.domains.Autor;
 import com.bibliotecaAtv.biblioteca.domains.Livro;
 import com.bibliotecaAtv.biblioteca.domains.dtos.LivroDTO;
 import com.bibliotecaAtv.biblioteca.repositories.LivroRepository;
-import org.hibernate.ObjectNotFoundException;
+import com.bibliotecaAtv.biblioteca.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class LivroService {
 
     public Livro findbyId(Long id){
         Optional<Livro> obj = livroRepo.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Codigo de barras não encontrado! Codigo de barras: " + id));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Livro não encontrado! Livro: " + id));
     }
 
     public Livro findbyisbn(String isbn){

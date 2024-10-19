@@ -4,7 +4,7 @@ import com.bibliotecaAtv.biblioteca.domains.Autor;
 import com.bibliotecaAtv.biblioteca.domains.Editora;
 import com.bibliotecaAtv.biblioteca.domains.dtos.AutorDTO;
 import com.bibliotecaAtv.biblioteca.repositories.AutorRepository;
-import org.hibernate.ObjectNotFoundException;
+import com.bibliotecaAtv.biblioteca.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,6 @@ public class AutorService {
     }
     public Autor findbyId(Long id){
         Optional<Autor> obj = autorRepo.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Codigo de barras não encontrado! Codigo de barras: " + id));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Autor não encontrado! Id:" + id));
     }
 }
